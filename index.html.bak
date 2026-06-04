@@ -120,12 +120,12 @@ nav.scrolled .nav-cta:hover { background: var(--charcoal); color: white !importa
 .link-arrow:hover { gap: 20px; border-color: var(--charcoal); }
 
 /* STYLE SECTION */
-#styles { padding: 100px 64px; background: white; }
-.styles-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 56px; }
-.style-card { background: #F5F3F0; padding: 44px 32px 36px; text-align: center; cursor: pointer; transition: all 0.3s; position: relative; border-radius: 4px; }
+#styles { padding: 100px 64px; background: var(--warm-white); }
+.styles-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: rgba(200,192,180,0.3); margin-top: 56px; }
+.style-card { background: var(--cream); padding: 40px 32px; text-align: center; cursor: pointer; transition: background 0.3s; position: relative; }
 .style-card:hover { background: white; }
 .style-card.active { background: var(--charcoal); }
-.style-card img { width: 85%; max-height: 120px; object-fit: contain; margin-bottom: 24px; transition: all 0.3s; }
+.style-card img { width: 80%; max-height: 110px; object-fit: contain; margin-bottom: 20px; transition: opacity 0.3s; }
 .style-card.active img { filter: brightness(0) invert(1); }
 .style-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 300; letter-spacing: 0.06em; color: var(--charcoal); margin-bottom: 6px; }
 .style-card.active .style-name { color: white; }
@@ -135,7 +135,7 @@ nav.scrolled .nav-cta:hover { background: var(--charcoal); color: white !importa
 .style-card.active .style-price { color: rgba(255,255,255,0.65); }
 
 /* LINEUP */
-#lineup { padding: 100px 64px; background: #F2EFE9; }
+#lineup { padding: 100px 64px; background: var(--cream); }
 .lineup-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; flex-wrap: wrap; gap: 24px; }
 .lineup-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(34px, 4.5vw, 56px); font-weight: 300; line-height: 1.1; color: var(--charcoal); }
 .lineup-title em { font-style: italic; color: var(--accent); }
@@ -144,19 +144,20 @@ nav.scrolled .nav-cta:hover { background: var(--charcoal); color: white !importa
 .lineup-filter li:last-child button { border-right: none; }
 .lineup-filter button.active, .lineup-filter button:hover { background: var(--charcoal); color: white; }
 
-.product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.product-card { background: white; border: 0.5px solid rgba(200,192,180,0.45); border-radius: 6px; overflow: hidden; cursor: pointer; transition: box-shadow 0.3s, transform 0.3s; position: relative; }
-.product-card:hover { box-shadow: 0 8px 32px rgba(42,40,36,0.1); transform: translateY(-3px); }
-.product-visual { aspect-ratio: 1/1; background: #F5F3F0; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-.product-visual img { width: 76%; height: 76%; object-fit: contain; transition: transform 0.5s; }
-.product-card:hover .product-visual img { transform: scale(1.06); }
-.product-info { padding: 16px 18px 20px; }
-.product-series-tag { font-size: 8px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; display: block; }
-.product-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300; color: var(--charcoal); letter-spacing: 0.04em; line-height: 1.2; }
-.product-kana { font-size: 11px; color: var(--muted); letter-spacing: 0.08em; margin-top: 4px; font-family: 'Noto Serif JP', serif; }
-.product-price { font-size: 13px; color: var(--charcoal); margin-top: 12px; font-family: 'Cormorant Garamond', serif; letter-spacing: 0.02em; border-top: 0.5px solid rgba(200,192,180,0.4); padding-top: 10px; }
-.product-arrow { display: none; }
-.product-badge { position: absolute; top: 12px; left: 12px; font-size: 8px; letter-spacing: 0.22em; text-transform: uppercase; background: var(--charcoal); color: white; padding: 4px 10px; z-index: 2; border-radius: 2px; }
+.product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(200,192,180,0.3); }
+.product-card { background: var(--warm-white); position: relative; overflow: hidden; cursor: pointer; transition: background 0.3s; }
+.product-card:hover { background: white; }
+.product-visual { aspect-ratio: 4/3; background: #EDEAE4; display: flex; align-items: center; justify-content: center; overflow: hidden; transition: background 0.4s; }
+.product-visual img { width: 80%; height: 80%; object-fit: contain; transition: transform 0.5s, opacity 0.4s; opacity: 0.85; }
+.product-card:hover .product-visual { background: #E4E0D8; }
+.product-card:hover .product-visual img { transform: scale(1.04); opacity: 1; }
+.product-info { padding: 20px 24px; border-top: 0.5px solid rgba(200,192,180,0.4); display: flex; justify-content: space-between; align-items: center; min-height: 84px; }
+.product-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300; color: var(--charcoal); letter-spacing: 0.04em; }
+.product-kana { font-size: 10px; color: var(--muted); letter-spacing: 0.1em; margin-top: 2px; font-family: 'Noto Serif JP', serif; }
+.product-price { font-size: 12px; color: var(--accent); margin-top: 4px; font-family: 'Cormorant Garamond', serif; font-size: 14px; }
+.product-arrow { width: 36px; height: 36px; border: 0.5px solid var(--stone); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 14px; transition: all 0.25s; flex-shrink: 0; }
+.product-card:hover .product-arrow { background: var(--charcoal); color: white; border-color: var(--charcoal); }
+.product-badge { position: absolute; top: 14px; left: 14px; font-size: 8px; letter-spacing: 0.22em; text-transform: uppercase; background: var(--charcoal); color: white; padding: 4px 12px; z-index: 2; }
 .product-sizes { font-size: 10px; color: var(--muted); margin-top: 4px; font-family: 'Jost', sans-serif; }
 
 /* NUMBERS */
@@ -170,21 +171,18 @@ nav.scrolled .nav-cta:hover { background: var(--charcoal); color: white !importa
 .number-desc { font-size: 12px; color: rgba(255,255,255,0.3); line-height: 1.8; font-family: 'Noto Serif JP', serif; font-weight: 200; }
 
 /* FAUCET SECTION */
-#faucet { padding: 100px 64px; background: var(--cream); }
+#faucet { padding: 100px 64px; background: var(--warm-white); }
 .faucet-intro { max-width: 640px; margin-bottom: 56px; }
-.faucet-subsection-label { display: flex; align-items: center; gap: 14px; margin: 48px 0 20px; }
-.faucet-subsection-label span { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); }
-.faucet-subsection-label::before { content:''; width:20px; height:0.5px; background:var(--stone); flex-shrink:0; }
-.faucet-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.faucet-card { background: white; border: 0.5px solid rgba(200,192,180,0.45); border-radius: 6px; overflow: hidden; cursor: pointer; transition: box-shadow 0.3s, transform 0.3s; }
-.faucet-card:hover { box-shadow: 0 8px 32px rgba(42,40,36,0.1); transform: translateY(-3px); }
-.faucet-visual { aspect-ratio: 2/3; background: #F5F3F0; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 12px; }
-.faucet-visual img { width: 70%; height: 100%; object-fit: contain; transition: transform 0.5s; }
-.faucet-card:hover .faucet-visual img { transform: scale(1.06); }
-.faucet-info { padding: 14px 16px 18px; border-top: 0.5px solid rgba(200,192,180,0.35); }
-.faucet-name { font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 300; color: var(--charcoal); letter-spacing: 0.04em; }
-.faucet-kana { font-size: 11px; color: var(--muted); margin-top: 3px; font-family: 'Noto Serif JP', serif; }
-.faucet-price { font-size: 13px; color: var(--charcoal); margin-top: 10px; font-family: 'Cormorant Garamond', serif; border-top: 0.5px solid rgba(200,192,180,0.3); padding-top: 8px; }
+.faucet-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(200,192,180,0.3); }
+.faucet-card { background: var(--cream); overflow: hidden; cursor: pointer; transition: background 0.3s; }
+.faucet-card:hover { background: white; }
+.faucet-visual { aspect-ratio: 3/4; background: #EDEAE4; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.faucet-visual img { width: 55%; height: 80%; object-fit: contain; transition: transform 0.5s; opacity: 0.85; }
+.faucet-card:hover .faucet-visual img { transform: scale(1.05); opacity: 1; }
+.faucet-info { padding: 18px 20px; border-top: 0.5px solid rgba(200,192,180,0.4); }
+.faucet-name { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 300; color: var(--charcoal); letter-spacing: 0.04em; }
+.faucet-kana { font-size: 10px; color: var(--muted); margin-top: 2px; font-family: 'Noto Serif JP', serif; }
+.faucet-price { font-size: 13px; color: var(--accent); margin-top: 6px; font-family: 'Cormorant Garamond', serif; }
 
 /* DETAIL */
 #detail { display: grid; grid-template-columns: 1fr 1fr; min-height: 60vh; }
@@ -238,8 +236,8 @@ footer { background: #181510; padding: 80px 64px 40px; }
   .phil-text, .detail-text { padding: 72px 40px; }
   #styles, #lineup, #faucet, #contact { padding: 80px 32px; }
   .styles-grid { grid-template-columns: repeat(2, 1fr); }
-  .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .faucet-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+  .faucet-grid { grid-template-columns: repeat(2, 1fr); }
   #numbers { grid-template-columns: repeat(2, 1fr); gap: 40px; padding: 80px 32px; }
   .number-item { padding: 0 0 32px 0; border-right: none; border-bottom: 0.5px solid rgba(255,255,255,0.08); }
   .number-item:nth-child(3), .number-item:last-child { border-bottom: none; padding-bottom: 0; }
@@ -249,8 +247,7 @@ footer { background: #181510; padding: 80px 64px 40px; }
 @media (max-width: 640px) {
   .nav-links, .nav-cta { display: none; }
   .hero-title { font-size: clamp(36px, 10vw, 52px); }
-  .styles-grid { grid-template-columns: repeat(2,1fr); }
-  .product-grid, .faucet-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .styles-grid, .product-grid, .faucet-grid { grid-template-columns: 1fr; }
   #numbers { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .lineup-header { flex-direction: column; align-items: flex-start; }
@@ -378,10 +375,11 @@ footer { background: #181510; padding: 80px 64px 40px; }
       <div class="product-info">
         <div>
           <div class="product-name">Valence</div>
-          <div class="product-kana">ヴァランス <span style="color:var(--accent);margin-left:4px;">Clarte</span></div>
+          <div class="product-kana">ヴァランス — Clarte</div>
           <div class="product-price">¥1,310,000（税別）〜</div>
         </div>
-        </div>
+        <div class="product-arrow">→</div>
+      </div>
     </div>
 
     <div class="product-card" data-category="clarte">
@@ -391,10 +389,11 @@ footer { background: #181510; padding: 80px 64px 40px; }
       <div class="product-info">
         <div>
           <div class="product-name">Metz</div>
-          <div class="product-kana">メッス <span style="color:var(--accent);margin-left:4px;">Clarte</span></div>
+          <div class="product-kana">メッス — Clarte</div>
           <div class="product-price">¥1,410,000（税別）〜</div>
         </div>
-        </div>
+        <div class="product-arrow">→</div>
+      </div>
     </div>
 
     <div class="product-card" data-category="clarte">
@@ -404,10 +403,11 @@ footer { background: #181510; padding: 80px 64px 40px; }
       <div class="product-info">
         <div>
           <div class="product-name">Bourges</div>
-          <div class="product-kana">ブールジュ <span style="color:var(--accent);margin-left:4px;">Clarte</span></div>
+          <div class="product-kana">ブールジュ — Clarte</div>
           <div class="product-price">¥1,330,000（税別）〜</div>
         </div>
-        </div>
+        <div class="product-arrow">→</div>
+      </div>
     </div>
 
     <div class="product-card" data-category="clarte">
@@ -417,10 +417,11 @@ footer { background: #181510; padding: 80px 64px 40px; }
       <div class="product-info">
         <div>
           <div class="product-name">Douai</div>
-          <div class="product-kana">ドゥエー <span style="color:var(--accent);margin-left:4px;">Clarte</span></div>
+          <div class="product-kana">ドゥエー — Clarte</div>
           <div class="product-price">¥1,430,000（税別）〜</div>
         </div>
-        </div>
+        <div class="product-arrow">→</div>
+      </div>
     </div>
 
     <!-- OPALINE -->
@@ -431,10 +432,11 @@ footer { background: #181510; padding: 80px 64px 40px; }
       <div class="product-info">
         <div>
           <div class="product-name">Antibes</div>
-          <div class="product-kana">アンティーブ <span style="color:var(--accent);margin-left:4px;">Opaline</span></div>
+          <div class="product-kana">アンティーブ — Opaline</div>
           <div class="product-price">¥790,000（税別）〜</div>
         </div>
-        </div>
+        <div class="product-arrow">→</div>
+      </div>
     </div>
 
     <div class="product-card" data-category="opaline">
@@ -444,10 +446,11 @@ footer { background: #181510; padding: 80px 64px 40px; }
       <div class="product-info">
         <div>
           <div class="product-name">Dunkerque <span style="font-size:13px;color:var(--muted)">ovale</span></div>
-          <div class="product-kana">ダンケルク オーバル <span style="color:var(--accent);margin-left:4px;">Opaline</span></div>
+          <div class="product-kana">ダンケルク オーバル — Opaline</div>
           <div class="product-price">¥970,000（税別）〜</div>
         </div>
-        </div>
+        <div class="product-arrow">→</div>
+      </div>
     </div>
 
     <div class="product-card" data-category="opaline">
@@ -457,10 +460,11 @@ footer { background: #181510; padding: 80px 64px 40px; }
       <div class="product-info">
         <div>
           <div class="product-name">Dunkerque <span style="font-size:13px;color:var(--muted)">carré</span></div>
-          <div class="product-kana">ダンケルク カレ <span style="color:var(--accent);margin-left:4px;">Opaline</span></div>
+          <div class="product-kana">ダンケルク カレ — Opaline</div>
           <div class="product-price">¥990,000（税別）〜</div>
         </div>
-        </div>
+        <div class="product-arrow">→</div>
+      </div>
     </div>
 
     <div class="product-card" data-category="opaline">
@@ -470,10 +474,11 @@ footer { background: #181510; padding: 80px 64px 40px; }
       <div class="product-info">
         <div>
           <div class="product-name">Bastia</div>
-          <div class="product-kana">バスティア <span style="color:var(--accent);margin-left:4px;">Opaline</span></div>
+          <div class="product-kana">バスティア — Opaline</div>
           <div class="product-price">¥1,270,000（税別）〜</div>
         </div>
-        </div>
+        <div class="product-arrow">→</div>
+      </div>
     </div>
 
     <div class="product-card" data-category="opaline">
@@ -483,10 +488,11 @@ footer { background: #181510; padding: 80px 64px 40px; }
       <div class="product-info">
         <div>
           <div class="product-name">Nantes</div>
-          <div class="product-kana">ナント <span style="color:var(--accent);margin-left:4px;">Opaline</span></div>
+          <div class="product-kana">ナント — Opaline</div>
           <div class="product-price">¥1,410,000（税別）〜</div>
         </div>
-        </div>
+        <div class="product-arrow">→</div>
+      </div>
     </div>
 
     <div class="product-card" data-category="opaline">
@@ -496,10 +502,11 @@ footer { background: #181510; padding: 80px 64px 40px; }
       <div class="product-info">
         <div>
           <div class="product-name">Rouen</div>
-          <div class="product-kana">ルーアン <span style="color:var(--accent);margin-left:4px;">Opaline</span></div>
+          <div class="product-kana">ルーアン — Opaline</div>
           <div class="product-price">¥790,000（税別）〜</div>
         </div>
-        </div>
+        <div class="product-arrow">→</div>
+      </div>
     </div>
 
     <div class="product-card" data-category="opaline">
@@ -509,10 +516,11 @@ footer { background: #181510; padding: 80px 64px 40px; }
       <div class="product-info">
         <div>
           <div class="product-name">Toulon</div>
-          <div class="product-kana">トゥーロン <span style="color:var(--accent);margin-left:4px;">Opaline</span></div>
+          <div class="product-kana">トゥーロン — Opaline</div>
           <div class="product-price">¥1,390,000（税別）〜</div>
         </div>
-        </div>
+        <div class="product-arrow">→</div>
+      </div>
     </div>
 
     <!-- HORIZON -->
@@ -523,10 +531,11 @@ footer { background: #181510; padding: 80px 64px 40px; }
       <div class="product-info">
         <div>
           <div class="product-name">Maubeuge</div>
-          <div class="product-kana">モブージュ <span style="color:var(--accent);margin-left:4px;">Horizon</span></div>
+          <div class="product-kana">モブージュ — Horizon</div>
           <div class="product-price">¥930,000（税別）〜</div>
         </div>
-        </div>
+        <div class="product-arrow">→</div>
+      </div>
     </div>
 
     <div class="product-card" data-category="horizon">
@@ -536,10 +545,11 @@ footer { background: #181510; padding: 80px 64px 40px; }
       <div class="product-info">
         <div>
           <div class="product-name">Epinal</div>
-          <div class="product-kana">エピナル <span style="color:var(--accent);margin-left:4px;">Horizon</span></div>
+          <div class="product-kana">エピナル — Horizon</div>
           <div class="product-price">¥1,090,000（税別）〜</div>
         </div>
-        </div>
+        <div class="product-arrow">→</div>
+      </div>
     </div>
 
     <div class="product-card" data-category="horizon">
@@ -549,10 +559,11 @@ footer { background: #181510; padding: 80px 64px 40px; }
       <div class="product-info">
         <div>
           <div class="product-name">Sarcelles</div>
-          <div class="product-kana">サルセル <span style="color:var(--accent);margin-left:4px;">Horizon</span></div>
+          <div class="product-kana">サルセル — Horizon</div>
           <div class="product-price">¥1,150,000（税別）〜</div>
         </div>
-        </div>
+        <div class="product-arrow">→</div>
+      </div>
     </div>
 
     <div class="product-card" data-category="horizon">
@@ -562,10 +573,11 @@ footer { background: #181510; padding: 80px 64px 40px; }
       <div class="product-info">
         <div>
           <div class="product-name">Anglet</div>
-          <div class="product-kana">アングレット <span style="color:var(--accent);margin-left:4px;">Horizon</span></div>
+          <div class="product-kana">アングレット — Horizon</div>
           <div class="product-price">¥1,150,000（税別）〜</div>
         </div>
-        </div>
+        <div class="product-arrow">→</div>
+      </div>
     </div>
 
     <div class="product-card" data-category="horizon">
@@ -575,10 +587,11 @@ footer { background: #181510; padding: 80px 64px 40px; }
       <div class="product-info">
         <div>
           <div class="product-name">Cergy</div>
-          <div class="product-kana">セルジー <span style="color:var(--accent);margin-left:4px;">Horizon</span></div>
+          <div class="product-kana">セルジー — Horizon</div>
           <div class="product-price">¥1,190,000（税別）〜</div>
         </div>
-        </div>
+        <div class="product-arrow">→</div>
+      </div>
     </div>
 
     <div class="product-card" data-category="horizon">
@@ -588,10 +601,11 @@ footer { background: #181510; padding: 80px 64px 40px; }
       <div class="product-info">
         <div>
           <div class="product-name">Troyes</div>
-          <div class="product-kana">トロワ <span style="color:var(--accent);margin-left:4px;">Horizon</span></div>
+          <div class="product-kana">トロワ — Horizon</div>
           <div class="product-price">¥1,300,000（税別）〜</div>
         </div>
-        </div>
+        <div class="product-arrow">→</div>
+      </div>
     </div>
 
     <div class="product-card" data-category="horizon">
@@ -601,10 +615,11 @@ footer { background: #181510; padding: 80px 64px 40px; }
       <div class="product-info">
         <div>
           <div class="product-name">Niort</div>
-          <div class="product-kana">ニオール <span style="color:var(--accent);margin-left:4px;">Horizon</span></div>
+          <div class="product-kana">ニオール — Horizon</div>
           <div class="product-price">¥1,310,000（税別）〜</div>
         </div>
-        </div>
+        <div class="product-arrow">→</div>
+      </div>
     </div>
 
     <!-- SOLEIL -->
@@ -616,10 +631,11 @@ footer { background: #181510; padding: 80px 64px 40px; }
       <div class="product-info">
         <div>
           <div class="product-name">Niort - Soleil</div>
-          <div class="product-kana">ニオール ソレイル <span style="color:var(--accent);margin-left:4px;">Soleil</span></div>
+          <div class="product-kana">ニオール ソレイル — Soleil</div>
           <div class="product-price">¥1,530,000（税別）〜</div>
         </div>
-        </div>
+        <div class="product-arrow">→</div>
+      </div>
     </div>
 
     <div class="product-card" data-category="soleil">
@@ -630,10 +646,11 @@ footer { background: #181510; padding: 80px 64px 40px; }
       <div class="product-info">
         <div>
           <div class="product-name">Chelles</div>
-          <div class="product-kana">シェル <span style="color:var(--accent);margin-left:4px;">Soleil</span></div>
+          <div class="product-kana">シェル — Soleil</div>
           <div class="product-price">¥1,650,000（税別）〜</div>
         </div>
-        </div>
+        <div class="product-arrow">→</div>
+      </div>
     </div>
 
     <div class="product-card" data-category="soleil">
@@ -644,10 +661,11 @@ footer { background: #181510; padding: 80px 64px 40px; }
       <div class="product-info">
         <div>
           <div class="product-name">Arles</div>
-          <div class="product-kana">アルル <span style="color:var(--accent);margin-left:4px;">Soleil</span></div>
+          <div class="product-kana">アルル — Soleil</div>
           <div class="product-price">¥1,890,000（税別）〜</div>
         </div>
-        </div>
+        <div class="product-arrow">→</div>
+      </div>
     </div>
 
   </div>
