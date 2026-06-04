@@ -48,18 +48,29 @@ nav.scrolled .nav-cta:hover { background: var(--charcoal); color: white !importa
   height: 100vh; min-height: 680px; position: relative;
   display: flex; align-items: flex-end; padding: 0 64px 96px; overflow: hidden;
 }
-.hero-bg { position: absolute; inset: 0; background: linear-gradient(155deg, #3A3530 0%, #1E1C18 55%, #0E0D0B 100%); }
-.hero-overlay {
+.hero-slides { position: absolute; inset: 0; }
+.hero-slide {
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse 55% 65% at 68% 38%, rgba(184,168,152,0.13) 0%, transparent 60%),
-              radial-gradient(ellipse 35% 45% at 25% 72%, rgba(90,80,70,0.08) 0%, transparent 55%);
+  background-size: cover; background-position: center;
+  opacity: 0; transition: opacity 1.4s ease;
 }
-.hero-img {
-  position: absolute; right: 5%; top: 50%; transform: translateY(-52%);
-  width: 46%; max-width: 620px; object-fit: contain; opacity: 0.22;
-  animation: heroFadeIn 1.8s ease 0.3s both;
-  filter: brightness(0) invert(1);
+.hero-slide.active { opacity: 1; }
+.hero-slide::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(105deg, rgba(15,12,8,0.62) 0%, rgba(15,12,8,0.28) 55%, rgba(15,12,8,0.15) 100%);
 }
+.hero-bg { display: none; }
+.hero-overlay { display: none; }
+.hero-img { display: none; }
+/* Slide dots */
+.hero-dots {
+  position: absolute; bottom: 44px; left: 64px; z-index: 10;
+  display: flex; gap: 10px; align-items: center;
+}
+.hero-dot {
+  width: 24px; height: 1px; background: rgba(255,255,255,0.3); cursor: pointer; transition: all 0.4s;
+}
+.hero-dot.active { width: 48px; background: white; }
 .hero-content { position: relative; z-index: 2; max-width: 540px; }
 .hero-eyebrow {
   font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--stone);
@@ -259,12 +270,13 @@ footer { background: #181510; padding: 80px 64px 40px; }
 
 <!-- HERO -->
 <section id="hero">
+  <div class="hero-slides">
+    <div class="hero-slide active" style="background-image:url('images/hero1.png')"></div>
+    <div class="hero-slide" style="background-image:url('images/hero2.png')"></div>
+    <div class="hero-slide" style="background-image:url('images/hero3.png')"></div>
+  </div>
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
-  <img class="hero-img"
-    src="https://sense.selei.co.jp/assets/images/blanc/img_style_clarte.svg"
-    alt="BLANC Clarte"
-    onerror="this.style.display='none'">
   <div class="hero-content">
     <p class="hero-eyebrow">Luxury Jacuzzi Bathware</p>
     <h1 class="hero-title">普段の生活を、<br><em>豊かにする「白」の贅沢。</em></h1>
@@ -276,6 +288,11 @@ footer { background: #181510; padding: 80px 64px 40px; }
       <a href="#lineup" class="btn-primary">コレクションを見る</a>
       <a href="#contact" class="btn-ghost">お問い合わせ</a>
     </div>
+  </div>
+  <div class="hero-dots">
+    <div class="hero-dot active" onclick="goSlide(0)"></div>
+    <div class="hero-dot" onclick="goSlide(1)"></div>
+    <div class="hero-dot" onclick="goSlide(2)"></div>
   </div>
   <div class="hero-scroll">Scroll</div>
 </section>
@@ -835,6 +852,19 @@ footer { background: #181510; padding: 80px 64px 40px; }
 </footer>
 
 <script>
+  // Hero slideshow
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-dot');
+  function goSlide(n) {
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    currentSlide = (n + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+  }
+  setInterval(() => goSlide(currentSlide + 1), 5000);
+
   // Nav scroll
   const nav = document.getElementById('main-nav');
   window.addEventListener('scroll', () => {
